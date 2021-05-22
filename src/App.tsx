@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/header/index";
+import Product from "./components/product/index";
 import Banner from "./assets/images/banner.png";
 import styled from "styled-components";
+import { IProduct } from "./Models/product.interface";
+import ProductService from "./service/product.service";
 
 const BannerImage = styled.img`
     width: 100%;
@@ -19,25 +22,50 @@ const Title = styled.h2`
     color: #000;
 
     &::after {
-      content: "";
-      display: block;
-      height: 5px;
-      width: 65px;
-      background-color: #C0C0C0;
+        content: "";
+        display: block;
+        height: 5px;
+        width: 65px;
+        background-color: #c0c0c0;
     }
-`
+`;
+
+const ProductContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+`;
 
 function App() {
+    const [products, setProducts] = useState<IProduct[]>([]);
+
+    const getProducts = async () => {
+        const products = await ProductService.GetProducts();
+        setProducts(products.data);
+    };
+
+    useEffect(() => {
+        getProducts();
+    }, []);
+
     return (
         <div>
             <Header />
             <BannerImage src={Banner} alt="Banner" />
             <div>
                 <Container>
-                  <Title>Mais Vendidos</Title>
+                    <Title>Mais Vendidos</Title>
+                    <ProductContainer>
+                        {products.length ? (
+                            products.map((product) => {
+                                return <Product {...product} key={product.productId}/>;
+                            })
+                        ) : (
+                            <></>
+                        )}
+                    </ProductContainer>
                 </Container>
             </div>
-            <h1>Hello World!!</h1>
         </div>
     );
 }
