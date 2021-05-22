@@ -1,1 +1,4 @@
-declare module '*.ttf';
+declare module "*.png" {
+    const value: any;
+    export default value;
+}
