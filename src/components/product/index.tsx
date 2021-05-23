@@ -3,6 +3,7 @@ import { Product } from "./style";
 import Star from "./../../assets/images/star.png";
 import EmptyStar from "./../../assets/images/empty_star.png";
 import { IProduct } from "../../Models/product.interface";
+import { normalizePrice } from '../../utils/normalizePrice';
 
 interface IProductStars {
     numberOfStars: number;
@@ -34,11 +35,11 @@ const product: React.FC<IProduct> = ({
             <div className="productInfo">
                 <span className="productInfo__name">{productName}</span>
                 <ProductStars numberOfStars={stars} />
-                {listPrice ? <span className="productInfo__listPrice">de R$ {listPrice}</span> : <></>}
-                <span className="productInfo__price">por R$ {price}</span>
+                {listPrice ? <span className="productInfo__listPrice">de R$ {normalizePrice(listPrice)}</span> : <></>}
+                <span className="productInfo__price">por R$ {normalizePrice(price)}</span>
                 {installments.length ? (
                     <span>
-                        ou em {installments[0].quantity}x de R${installments[0].value}
+                        ou em {installments[0].quantity}x de R${normalizePrice(installments[0].value)}
                     </span>
                 ) : (
                     <></>
