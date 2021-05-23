@@ -5,7 +5,9 @@ import Banner from "./assets/images/banner.png";
 import styled from "styled-components";
 import { IProduct } from "./Models/product.interface";
 import ProductService from "./service/product.service";
+import NewsLetterService from './service/newsletter.service';
 import { Colors } from "./assets/style/colors";
+import Swal from "sweetalert2";
 
 const BannerImage = styled.img`
     width: 100%;
@@ -90,11 +92,34 @@ const NewsLetter = styled.div`
 
 function App() {
     const [products, setProducts] = useState<IProduct[]>([]);
+    const [name, setName] = useState<string>('')
+    const [email, setEmail] = useState<string>('')
 
     const getProducts = async () => {
         const products = await ProductService.GetProducts();
         setProducts(products.data);
     };
+
+    const sendContact = async (e: any) => {
+        e.preventDefault()
+        console.log({email, name});
+        
+        const newsReturn = await NewsLetterService.SendContact({email, name})
+        Swal.fire({
+            title: 'Obrigado!',
+            text: 'Informações enviadas com sucesso.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        })
+        console.log(newsReturn.data);
+    }
+
+    const handleNameChange = (e: any) => {
+        setName(e.target.value)
+    } 
+    const handleEmailChange = (e: any) => {
+        setEmail(e.target.value)
+    } 
 
     useEffect(() => {
         getProducts();
@@ -126,9 +151,9 @@ function App() {
             <NewsLetter>
                 <div className="newsContainer">
                     <h2>Participe de nossas news com promoções e novidades!</h2>
-                    <form className="newsContainer__form">
-                        <input type="text" placeholder="Digite seu nome" />
-                        <input type="email" placeholder="Digite seu email" />
+                    <form className="newsContainer__form" onSubmit={sendContact}>
+                        <input type="text" placeholder="Digite seu nome" onChange={handleNameChange}/>
+                        <input type="email" placeholder="Digite seu email" onChange={handleEmailChange} />
                         <button className="newsContainer__form--button">
                             Eu quero!
                         </button>
