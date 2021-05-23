@@ -8,6 +8,7 @@ import ProductService from "./service/product.service";
 import NewsLetterService from './service/newsletter.service';
 import { Colors } from "./assets/style/colors";
 import Swal from "sweetalert2";
+import Footer from './components/footer/index'
 
 const BannerImage = styled.img`
     width: 100%;
@@ -160,6 +161,7 @@ function App() {
                     </form>
                 </div>
             </NewsLetter>
+            <Footer />
         </div>
     );
 }
