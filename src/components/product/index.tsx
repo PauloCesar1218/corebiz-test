@@ -32,13 +32,16 @@ const product: React.FC<IProduct> = ({
     return (
         <Product>
             <img src={imageUrl} alt={productName} className="productImage" />
+            {listPrice ? <div className="productOnSale">
+                <span>OFF</span>
+            </div> : <></>}
             <div className="productInfo">
                 <span className="productInfo__name">{productName}</span>
                 <ProductStars numberOfStars={stars} />
                 {listPrice ? <span className="productInfo__listPrice">de R$ {normalizePrice(listPrice)}</span> : <></>}
                 <span className="productInfo__price">por R$ {normalizePrice(price)}</span>
                 {installments.length ? (
-                    <span>
+                    <span className="productInfo__installments">
                         ou em {installments[0].quantity}x de R${normalizePrice(installments[0].value)}
                     </span>
                 ) : (

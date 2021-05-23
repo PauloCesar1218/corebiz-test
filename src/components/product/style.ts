@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { Colors } from "../../assets/style/colors";
+import Off from "./../../assets/images/off.png";
 
 export const Product = styled.div`
     display: flex;
     flex-direction: column;
-    height: 353px;
+    position: relative;
+    min-height: 364px;
     width: 216px;
     &:hover {
         .productInfo {
@@ -20,11 +22,31 @@ export const Product = styled.div`
         height: 200px;
     }
 
+    .productOnSale {
+        position: absolute;
+        width: 80px;
+        height: 72px;
+        background-image: url(${Off});
+        background-size: cover;
+        top: 0;
+        right: 0;
+        color: ${Colors.white};
+        font-size: 16px;
+        font-weight: 900;
+
+        span {
+            position: absolute;
+            top: 12px;
+            right: 8px;
+        }
+    }
+
     .productInfo {
         display: flex;
         flex: 1;
         flex-direction: column;
         align-items: center;
+        padding-bottom: 14px;
 
         &__name {
             font-size: 12px;
@@ -38,16 +60,24 @@ export const Product = styled.div`
             font-size: 18px;
             font-weight: 700;
             color: ${Colors.black};
+            margin-top: 2px;
         }
 
         &__listPrice {
             font-size: 12px;
             font-weight: 400;
             color: ${Colors.silenced_text};
+            margin-top: 7px;
         }
 
         &__stars {
             display: inherit;
+        }
+
+        &__installments {
+            font-size: 11px;
+            font-weight: 400;
+            color: ${Colors.silenced_text};
         }
 
         &__buyButton {
@@ -60,6 +90,7 @@ export const Product = styled.div`
             letter-spacing: 1px;
             border: none;
             display: none;
+            margin-top: 8px;
         }
     }
 `;
