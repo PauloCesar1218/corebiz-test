@@ -30,11 +30,11 @@ const footer: React.FC = () => {
                 <div className="footerLogos">
                     <div className="footerLogos__item">
                         <span>Created by</span>
-                        <img src={CoreBizLogo} alt="Logo da Vtex" />
+                        <img src={CoreBizLogo} alt="Logo da Corebiz" className="footerLogos__item--corebiz" />
                     </div>
                     <div className="footerLogos__item">
                         <span>Powered by</span>
-                        <img src={VtexLogo} alt="Logo da Vtex" />
+                        <img src={VtexLogo} alt="Logo da Vtex" className="footerLogos__item--vtex" />
                     </div>
                 </div>
             </FlexContainer>
