@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Colors } from "../../assets/style/colors";
 import Off from "./../../assets/images/off.png";
 
-export const Product = styled.div`
+export const ProductContainer = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
@@ -12,7 +12,7 @@ export const Product = styled.div`
         .productInfo {
             background-color: ${Colors.grey};
             &__buyButton {
-                display: block;
+                visibility: visible;
             }
         }
     }
@@ -46,7 +46,14 @@ export const Product = styled.div`
         flex: 1;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
         padding-bottom: 14px;
+
+        div {
+            display: inherit;
+            flex-direction: column;
+            align-items: center;
+        }
 
         &__name {
             font-size: 12px;
@@ -80,6 +87,11 @@ export const Product = styled.div`
             color: ${Colors.silenced_text};
         }
 
+        &__installmentsHidden {
+            font-size: 11px;
+            visibility: hidden;
+        }
+
         &__buyButton {
             background-color: ${Colors.black};
             border-radius: 5px;
@@ -89,8 +101,9 @@ export const Product = styled.div`
             padding: 8px 28px;
             letter-spacing: 1px;
             border: none;
-            display: none;
+            visibility: hidden;
             margin-top: 8px;
+            cursor: pointer;
         }
     }
 `;
