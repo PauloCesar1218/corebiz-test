@@ -5,13 +5,13 @@ import { Container } from "./../../assets/style/container";
 export const FooterContainer = styled.div`
     width: 100%;
     background-color: ${Colors.black};
-    display: flex;
-    justify-content: center;
 `;
 
 export const FlexContainer = styled(Container)`
     display: flex;
     justify-content: space-between;
+    background-color: ${Colors.black};
+    margin: 0 auto;
     padding: 26px 0;
 
     .footerLocation {
@@ -65,6 +65,13 @@ export const FlexContainer = styled(Container)`
 
             img {
                 height: 18px;
+            }
+
+            &--vtex {
+                width: 52px
+            }
+
+            &--corebiz {
                 width: 76px;
             }
         }

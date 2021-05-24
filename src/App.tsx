@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/header/index";
 import Product from "./components/product/index";
-import Banner from "./assets/images/banner.png";
+// import Banner from "./assets/images/banner.png";
 import styled from "styled-components";
 import { IProduct } from "./Models/product.interface";
 import ProductService from "./service/product.service";
@@ -9,11 +9,7 @@ import NewsLetterService from './service/newsletter.service';
 import { Colors } from "./assets/style/colors";
 import Swal from "sweetalert2";
 import Footer from './components/footer/index'
-
-const BannerImage = styled.img`
-    width: 100%;
-    height: 430px;
-`;
+import Banner from './components/banner/index'
 
 const Container = styled.section`
     width: 1240px;
@@ -129,7 +125,8 @@ function App() {
     return (
         <div>
             <Header />
-            <BannerImage src={Banner} alt="Banner" />
+
+            <Banner />
             <div>
                 <Container>
                     <Title>Mais Vendidos</Title>

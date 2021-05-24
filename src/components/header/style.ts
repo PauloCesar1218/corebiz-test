@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { Colors } from "./../../assets/style/colors";
-export const HeaderContainer = styled.div`
+import { Container } from './../../assets/style/container'
+export const HeaderContainer = styled(Container)`
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-between;
+    margin: 0 auto;
     height: 80px;
 
     .logo {
