@@ -10,6 +10,7 @@ export const FooterContainer = styled.div`
 export const FlexContainer = styled(Container)`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: ${Colors.black};
     margin: 0 auto;
     padding: 26px 0;
@@ -48,6 +49,36 @@ export const FlexContainer = styled(Container)`
         }
     }
 
+    .footerContacts {
+        display: flex;
+        flex-direction: column;
+
+        &__item {
+            background-color: ${Colors.white};
+            display: inherit;
+            align-items: center;
+            justify-content: center;
+            width: 195px;
+            height: 38px;
+            border-radius: 5px;
+            line-height: 100%;
+
+            &:nth-child(1) {
+                margin-bottom: 25px;
+            }
+            img { 
+                width: 15px;
+                height: 18px;
+                margin-right: 18px;
+            }
+
+            span {
+                font-size: 12px;
+                font-weight: 600;
+            }
+        }
+    }
+
     .footerLogos {
         display: flex;
         align-items: center;
@@ -68,7 +99,7 @@ export const FlexContainer = styled(Container)`
             }
 
             &--vtex {
-                width: 52px
+                width: 52px;
             }
 
             &--corebiz {
