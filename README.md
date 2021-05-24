@@ -2,7 +2,7 @@
 
 Teste tecnico para Corebiz.
 
-![alt text](https://raw.githubusercontent.com/PauloCesar1218/corebiz-test/hotfix/footer/src/assets/images/banner.png?token=AKOZ52N2AAPGVLYZL3AQYY3AVNITC)
+![Pagina principal](https://raw.githubusercontent.com/PauloCesar1218/corebiz-test/master/src/assets/images/Project_Print.PNG?token=AKOZ52NR57M4BHF276WCM5TAVNJYU)
 
 ## Instalação
 
