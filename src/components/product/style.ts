@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Colors } from "../../assets/style/colors";
 import Off from "./../../assets/images/off.png";
 
-export const Product = styled.div`
+export const ProductContainer = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
@@ -103,6 +103,7 @@ export const Product = styled.div`
             border: none;
             visibility: hidden;
             margin-top: 8px;
+            cursor: pointer;
         }
     }
 `;

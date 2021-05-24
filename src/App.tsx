@@ -10,6 +10,8 @@ import Footer from "./components/footer/index";
 import { IProduct } from "./Models/product.interface";
 import ProductService from "./service/product.service";
 
+import { ProductProvider } from './context/product'
+
 const Container = styled.section`
     width: 1240px;
     margin: 0 auto;
@@ -54,7 +56,7 @@ function App() {
     }, []);
 
     return (
-        <div>
+        <ProductProvider>
             <Header />
             <Banner />
             <div>
@@ -78,7 +80,7 @@ function App() {
             </div>
             <NewsLetter />
             <Footer />
-        </div>
+        </ProductProvider>
     );
 }
 

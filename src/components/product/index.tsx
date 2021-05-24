@@ -1,9 +1,10 @@
-import React from "react";
-import { Product } from "./style";
+import React, {useContext} from "react";
+import { ProductContainer } from "./style";
 import Star from "./../../assets/images/star.png";
 import EmptyStar from "./../../assets/images/empty_star.png";
 import { IProduct } from "../../Models/product.interface";
 import { normalizePrice } from '../../utils/normalizePrice';
+import ProductContext from "./../../context/product";
 
 interface IProductStars {
     numberOfStars: number;
@@ -20,7 +21,7 @@ const ProductStars = ({ numberOfStars }: IProductStars) => {
     );
 };
 
-const product: React.FC<IProduct> = ({
+const Product: React.FC<IProduct> = ({
     productId,
     productName,
     imageUrl,
@@ -29,8 +30,9 @@ const product: React.FC<IProduct> = ({
     price,
     installments,
 }) => {
+    const { sendProductToCart } = useContext(ProductContext)
     return (
-        <Product>
+        <ProductContainer>
             <img src={imageUrl} alt={productName} className="productImage" />
             {listPrice ? <div className="productOnSale">
                 <span>OFF</span>
@@ -50,11 +52,11 @@ const product: React.FC<IProduct> = ({
                     ) : (
                         <span className="productInfo__installmentsHidden">Parcelas</span>
                     )}
-                    <button className="productInfo__buyButton">COMPRAR</button>
+                    <button className="productInfo__buyButton" onClick={() => sendProductToCart()}>COMPRAR</button>
                 </div>
             </div>
-        </Product>
+        </ProductContainer>
     );
 };
 
-export default product;
+export default Product;
