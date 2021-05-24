@@ -2,6 +2,7 @@ import React from "react";
 import { FooterContainer, FlexContainer } from "./style";
 import VtexLogo from "./../../assets/images/logo-vtex.png";
 import CoreBizLogo from './../../assets/images/logo-branca.png'
+import HeadSet from './../../assets/images/headset.png'
 const footer: React.FC = () => {
     return (
         <FooterContainer>
@@ -15,13 +16,13 @@ const footer: React.FC = () => {
                         <li>+55 11 3090 1039</li>
                     </ul>
                 </div>
-                <div>
-                    <div>
-                        <img src="" alt="" />
+                <div className="footerContacts">
+                    <div className="footerContacts__item">
+                        <img src={HeadSet} alt="" />
                         <span>ENTRE EM CONTATO</span>
                     </div>
-                    <div>
-                        <img src="" alt="" />
+                    <div className="footerContacts__item">
+                        <img src={HeadSet} alt="" />
                         <span>
                             FALE COM O NOSSO <br /> CONSULTOR ONLINE
                         </span>

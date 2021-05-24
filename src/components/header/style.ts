@@ -24,6 +24,10 @@ export const HeaderContainer = styled(Container)`
             border-bottom: 1px solid ${Colors.black};
             padding-bottom: 10px;
             color: ${Colors.silenced_text};
+
+            &:focus {
+                outline: none;
+            }
         }
         img {
             width: 18px;
